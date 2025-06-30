@@ -1,0 +1,504 @@
+ <html><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&family=Work+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet"/>
+<title>Stitch Design - Drilling Rig Inspection</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+      :root {
+        --bauer-blue: #003a70;
+        --bauer-light-blue: #005c9e;
+        --bauer-grey: #a0a0a0;
+        --bauer-light-grey: #f0f2f5;
+        --primary-action: #0c7ff2;
+        --success-green: #16a34a;
+        --warning-yellow: #f59e0b;
+        --danger-red: #dc2626;
+        --neutral-white: #ffffff;
+        --neutral-black: #111418;
+        --neutral-grey: #60758a;
+        --neutral-light-grey: #dbe0e6;
+      }
+      .icon {
+        font-family: 'Material Icons';
+        font-weight: normal;
+        font-style: normal;
+        font-size: 24px;
+        display: inline-block;
+        line-height: 1;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: normal;
+        white-space: nowrap;
+        direction: ltr;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        -moz-osx-font-smoothing: grayscale;
+        font-feature-settings: 'liga';
+      }
+      /* --- Navigation Link Styles --- */
+      .left-nav-link {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.5rem 1.5rem;
+        border-left: 4px solid transparent;
+        color: var(--neutral-grey);
+        font-weight: 500;
+        font-size: 0.875rem;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+      }
+      .left-nav-link .icon {
+        font-size: 22px;
+      }
+
+      .left-nav-link:not(.nav-current):not(.nav-completed):hover {
+        background-color: var(--bauer-light-grey);
+      }
+       .left-nav-link.nav-completed {
+         background-color: #dcfce7; /* tailwind green-100 */
+         color: #166534; /* tailwind green-800 */
+         border-left-color: var(--success-green);
+         font-weight: 600;
+       }
+       .left-nav-link.nav-current {
+         background-color: #ffedd5; /* tailwind orange-100 */
+         color: #9a3412; /* tailwind orange-800 */
+         border-left-color: var(--warning-yellow);
+         font-weight: 700;
+       }
+
+      .page-section { display: none; }
+      .page-section.active { display: block; }
+
+      /* --- Button Group Styles --- */
+       .button-group .btn-option.selected, .chip-group .chip.selected {
+        background-color: var(--bauer-blue) !important;
+        color: var(--neutral-white) !important;
+        border-color: var(--bauer-blue) !important;
+      }
+       .button-group .btn-option:not(.selected), .chip-group .chip:not(.selected) {
+        background-color: var(--bauer-light-grey);
+        color: var(--bauer-blue);
+      }
+      .checklist-group .btn-option {
+          transition: all 150ms ease-in-out;
+      }
+      .checklist-group .btn-option.selected {
+          box-shadow: 0 0 0 2px var(--bauer-light-blue);
+          color: white !important;
+      }
+      .checklist-group .btn-option:not(.selected) {
+        background-color: #e5e7eb;
+        color: #374151;
+      }
+      .checklist-group .btn-option.good.selected { background-color: var(--success-green); }
+      .checklist-group .btn-option.fair.selected { background-color: var(--warning-yellow); }
+      .checklist-group .btn-option.repair.selected { background-color: var(--danger-red); }
+
+    </style>
+</head>
+<body class="bg-[var(--bauer-light-grey)]">
+<div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden" style='font-family: "Work Sans", "Noto Sans", sans-serif;'>
+<div class="layout-container flex h-full grow flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[var(--bauer-grey)] px-6 py-4 bg-[var(--bauer-blue)] text-[var(--neutral-white)] sticky top-0 z-20 h-20">
+<div class="flex items-center gap-4">
+<img alt="BAUER Logo" class="h-10" src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d7/Bauer_Group.svg/1200px-Bauer_Group.svg.png"/>
+<h1 class="text-xl font-bold tracking-tight">Bauer International FZE</h1>
+</div>
+<div class="flex items-center gap-6">
+<nav class="flex gap-4">
+<a class="text-sm font-medium hover:text-[var(--bauer-light-blue)] transition-colors" href="#">Home</a>
+<a class="text-sm font-medium text-[var(--bauer-light-blue)] border-b-2 border-[var(--bauer-light-blue)] pb-1" href="#">New Inspection</a>
+<a class="text-sm font-medium hover:text-[var(--bauer-light-blue)] transition-colors" href="#">Past Inspections</a>
+</nav>
+<div class="flex items-center gap-3">
+<span class="text-sm">Yasser Al-Sebaee</span>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-[var(--bauer-light-blue)]" style='background-image: url("https://i.postimg.cc/QCkMXgFN/User.png");'></div>
+</div>
+</div>
+</header>
+
+<div class="sticky top-20 z-10 bg-slate-50 border-b border-slate-200 px-6 lg:px-10 xl:px-20">
+    <div class="w-[90%] max-w-none mx-auto py-4">
+        <div class="flex justify-between items-center">
+            <h1 class="text-[var(--bauer-blue)] text-2xl font-bold tracking-tight">New Drilling Rig Inspection</h1>
+            <div class="flex items-center gap-2 text-sm text-[var(--neutral-grey)]">
+                <span class="icon">checklist</span>
+                <span id="progress-text">Progress: 1/17</span>
+                <div class="w-40 h-2 bg-[var(--neutral-light-grey)] rounded-full overflow-hidden">
+                    <div id="progress-bar" class="h-full bg-[var(--bauer-blue)] rounded-full transition-all duration-300" style="width: 5.88%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<main class="flex-1 bg-transparent px-6 pb-8 lg:px-10 xl:px-20">
+<div class="w-[90%] max-w-none mx-auto bg-[var(--neutral-white)] shadow-xl rounded-lg">
+<div class="flex" style="height: calc(100vh - 152px);">
+<aside class="w-64 border-r border-[var(--neutral-light-grey)] py-4 shrink-0 overflow-y-auto">
+<nav id="left-nav-menu" class="flex flex-col"></nav>
+</aside>
+
+<div id="main-content" class="flex-1 p-6 lg:p-8 min-w-0 overflow-y-auto">
+    <div id="page-container" class="space-y-8">
+      </div>
+    
+    <div id="footer-nav" class="pt-6 mt-4 border-t border-[var(--neutral-light-grey)] flex justify-between items-center">
+        <button id="prev-btn" class="flex items-center gap-2 text-base font-bold py-2.5 px-6 rounded-lg bg-slate-200 text-slate-700 hover:bg-slate-300 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+            <span class="icon">arrow_back</span>Previous
+        </button>
+        <button id="next-btn" class="flex items-center gap-2 text-base font-bold py-2.5 px-6 rounded-lg bg-[var(--primary-action)] text-[var(--neutral-white)] hover:bg-blue-700 transition-colors">
+            Next<span class="icon">arrow_forward</span>
+        </button>
+        <button id="submit-btn" class="hidden items-center gap-2 text-base font-bold py-2.5 px-6 rounded-lg bg-green-600 text-[var(--neutral-white)] hover:bg-green-700 transition-colors">
+            <span class="icon">send</span>Submit Inspection
+        </button>
+    </div>
+</div>
+</div>
+</div>
+</main>
+<footer class="text-center py-4 text-sm text-[var(--neutral-grey)] bg-transparent">
+    <p>© 2025 Bauer International FZE. All rights reserved.</p>
+</footer>
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // --- SINGLE SOURCE OF TRUTH FOR FORM STRUCTURE ---
+    const formSections = [
+        { 
+            id: 'inspection-info', title: 'Inspection Info.', icon: 'info', type: 'custom', 
+            content: `
+                <h2 class="text-xl font-semibold text-[var(--bauer-blue)] mb-4 flex items-center gap-2"><span class="icon">info</span>Inspection Info.</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-5">
+                    <div>
+                        <label class="block text-sm font-medium text-[var(--neutral-grey)] mb-1" for="equipment-type">Equipment Type</label>
+                        <select class="form-select w-full rounded-md border-[var(--neutral-light-grey)] shadow-sm focus:border-[var(--bauer-light-blue)] focus:ring-[var(--bauer-light-blue)] text-sm py-2.5" id="equipment-type">
+                            <option>Drilling Rig</option><option>Crane</option><option>Cutter Machine</option><option>Piling Rig</option><option>Excavator</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-[var(--neutral-grey)] mb-1" for="equipment-id">Equipment ID</label>
+                        <select class="form-select w-full rounded-md border-[var(--neutral-light-grey)] shadow-sm focus:border-[var(--bauer-light-blue)] focus:ring-[var(--bauer-light-blue)] text-sm py-2.5" id="equipment-id">
+                            <option>BG 40 #12345</option><option>BG 28 H #54321</option><option>MC 96 #67890</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-[var(--neutral-grey)] mb-1" for="hour-meter">Engine Hour Meter</label>
+                        <input class="form-input w-full rounded-md border-[var(--neutral-light-grey)] shadow-sm focus:border-[var(--bauer-light-blue)] focus:ring-[var(--bauer-light-blue)] text-sm py-2.5" id="hour-meter" placeholder="e.g., 5432" type="number"/>
+                    </div>
+                    <div class="lg:col-span-3">
+                        <label class="block text-sm font-medium text-[var(--neutral-grey)] mb-2">Inspection Type</label>
+                        <div class="flex gap-3 flex-wrap chip-group">
+                            <button class="chip selected text-sm font-medium py-2 px-4 rounded-full flex items-center gap-1.5"><span class="icon text-base">check_circle</span>Routine</button>
+                            <button class="chip text-sm font-medium py-2 px-4 rounded-full flex items-center gap-1.5"><span class="icon text-base">radio_button_unchecked</span>Post-Repair</button>
+                            <button class="chip text-sm font-medium py-2 px-4 rounded-full flex items-center gap-1.5"><span class="icon text-base">radio_button_unchecked</span>Pre-Delivery</button>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-[var(--neutral-grey)] mb-1" for="inspection-date">Inspection Date</label>
+                        <input class="form-input w-full rounded-md border-[var(--neutral-light-grey)] shadow-sm focus:border-[var(--bauer-light-blue)] focus:ring-[var(--bauer-light-blue)] text-sm py-2.5" id="inspection-date" type="date"/>
+                    </div>
+                    <div class="lg:col-span-2">
+                        <label class="block text-sm font-medium text-[var(--neutral-grey)] mb-1" for="inspector-name">Inspector(s)</label>
+                        <input class="form-input w-full rounded-md border-[var(--neutral-light-grey)] shadow-sm focus:border-[var(--bauer-light-blue)] focus:ring-[var(--bauer-light-blue)] text-sm py-2.5" id="inspector-name" placeholder="Khalifa, Otar, Yasser" type="text"/>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-[var(--neutral-grey)] mb-1" for="location">Location</label>
+                        <input class="form-input w-full rounded-md border-[var(--neutral-light-grey)] shadow-sm focus:border-[var(--bauer-light-blue)] focus:ring-[var(--bauer-light-blue)] text-sm py-2.5" id="location" placeholder="Workshop A, Site B" type="text"/>
+                    </div>
+                </div>`
+        },
+        { id: 'fluid-levels', title: 'Fluid Levels', icon: 'water_drop', type: 'table', items: ["Engine Oil", "Coolant", "Coupling Oil", "Hydraulic Oil", "Crawler reduction gear Oil", "Main Winch Reduction Oil", "Service Winch Reduction Oil", "KDK Main Reduction Oil", "KDK Upper Right Reduction Oil", "KDK Upper Left Reduction Oil", "Crowd Winch Reduction Oil", "Swing Reduction Oil"] },
+        { id: 'fuel-tank', title: 'Fuel Tank', icon: 'local_gas_station', type: 'table', items: ["Fuel Connections", "Inner Tank cleanliness", "Leakages"] },
+        { id: 'engine', title: 'Engine', icon: 'settings', type: 'table', items: ["Feed Fuel (Primary) Pump", "Fuel Pump / Unit Pumps", "Injectors", "Turbocharger", "Oil Leaks", "Fan", "Fan Protection", "Belts", "Exhaust Insulation", "Exhaust Smoke Colour", "Radiator", "Expansion Tank and Cap"] },
+        { id: 'electrical-system', title: 'Electrical System', icon: 'bolt', type: 'table', items: ["Batteries", "Main Battery Switch", "Starter Motor", "Alternator", "Wiring Connections", "Lights", "Relays & Bases", "Fuses", "Electrical Panel Switches", "Automatic Greasing & Lines", "Air Conditioner", "Sensors & Pressure Trans."] },
+        { id: 'operator-cabin', title: 'Operator Cabin', icon: 'event_seat', type: 'table', items: ["Panel Indicators", "Ignition switch", "Hour Meter", "B-Tronic", "AT - System", "Seat", "Joysticks & Switches", "Camera Display Unit", "Door & Lock", "Glass & Mirrors", "Wipers and Motor"] },
+        { id: 'safety-devices', title: 'Safety Devices', icon: 'health_and_safety', type: 'table', items: ["Main Winch Limit Switch", "Aux. Winch Limit Switch", "Mast Tilting Limit Switch", "Boom Limit Switch", "Aviation Light", "Slack Rope Sensor", "Inclinometer", "Back-Up Alarm", "Fire Extinguisher(s)", "Beacon Lights", "Emergency Stop"] },
+        { id: 'kdk', title: 'KDK', icon: 'construction', type: 'table', items: ["Upper Seal", "Lower Seal", "Basic Reduction", "Upper Right Gearbox Leaks", "Upper Left Gearbox Leaks", "Lubrication Pump", "KDK Speeds", "Oil leaks & hoses", "Quick Couplers", "Sliding Wear Element (Brass/Plastic)", "Sledge Sheaves & Pins", "Inner KDK Sleeve", "Break Valve", "Springs", "Dampers"] },
+        { id: 'mast-head', title: 'Mast & Mast Head', icon: 'arrow_upward', type: 'table', items: ["Boom Cylinders & Valves", "Mast Rails", "Mast Tilting Wear Plates", "Backstay Cylinders & Valves", "Wire Rope Pullies", "Cylinders Pins"] },
+        { id: 'swing-system', title: 'Swing System', icon: 'rotate_right', type: 'table', items: ["Leaks", "Hydromotor", "Slewring Gear and Bearing", "Brakes", "Swing Lock"] },
+        { id: 'crawler-tracks', title: 'Crawler/Tracks', icon: 'moving', type: 'table', items: ["Track (chain-links)", "Shoes & Bolts", "Idler", "Sprocket", "Rollers", "Track Guides", "Chassis & Cracks", "Extension Cylinder & Stabilizers", "Hydromotors & Brakes"] },
+        { id: 'main-winch', title: 'Main Winch', icon: 'height', type: 'table', items: ["Control Valve", "Wire Rope", "Wire Swivel", "Hoses & Leaks", "Hydromotors", "Brakes", "High speed", "Freewheeling", "Depthmeter"] },
+        { id: 'service-winch', title: 'Service Winch', icon: 'vertical_align_center', type: 'table', items: ["Wire Rope", "Hoses & Leaks", "Hydromotors", "Brakes", "High speed"] },
+        { id: 'crowd-winch', title: 'Crowd Winch', icon: 'compress', type: 'table', items: ["Wire Rope", "Hoses & Leaks", "Hydromotors", "Brakes", "High speed", "Tension Cylinders"] },
+        { id: 'hydraulic-systems', title: 'Hydraulic Systems', icon: 'opacity', type: 'table', items: ["Pumps Pressure", "Main Controls", "Solenoid Valves", "Hoses & Leaks", "Relief Valves", "Hydraulic Cooler", "Fan Speed"] },
+        {
+            id: 'photo-documentation', title: 'Photo Documentation', icon: 'photo_camera', type: 'custom',
+            content: `
+                <h2 class="text-xl font-semibold text-[var(--bauer-blue)] mb-4 flex items-center gap-2"><span class="icon">photo_camera</span>Photo Documentation</h2>
+                <input type="file" id="photo-upload-input" class="hidden" accept="image/*" multiple>
+                <div id="photo-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-4">
+                    <div class="group relative photo-card">
+                        <div class="aspect-square w-full bg-center bg-no-repeat bg-cover rounded-lg shadow-md border border-[var(--neutral-light-grey)]" style="background-image: url('https://www.eqtyard.com/wp-content/uploads/2022/08/WhatsApp-Image-2022-08-04-at-10.54.38-PM-1.jpeg');"></div>
+                        <input class="mt-1.5 form-input w-full text-xs py-1 px-2 rounded-md border-[var(--neutral-light-grey)] shadow-sm focus:border-[var(--bauer-light-blue)] focus:ring-[var(--bauer-light-blue)]" placeholder="Caption..." type="text" value="Electrical Panel">
+                        <button class="delete-photo-btn absolute top-1 right-1 bg-red-500/80 hover:bg-red-600 text-white p-0.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"><span class="icon text-sm">close</span></button>
+                    </div>
+                    <div class="group relative photo-card">
+                        <div class="aspect-square w-full bg-center bg-no-repeat bg-cover rounded-lg shadow-md border-[var(--neutral-light-grey)]" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5qy76IJBYzt72tfW7hy9pSr7W2Dzizv5fXea6hc6vwE7fVJGEVofVcTsf6N6vS881k10&usqp=CAU');"></div>
+                        <input class="mt-1.5 form-input w-full text-xs py-1 px-2 rounded-md border-[var(--neutral-light-grey)] shadow-sm focus:border-[var(--bauer-light-blue)] focus:ring-[var(--bauer-light-blue)]" placeholder="Caption..." type="text" value="Engine View">
+                        <button class="delete-photo-btn absolute top-1 right-1 bg-red-500/80 hover:bg-red-600 text-white p-0.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"><span class="icon text-sm">close</span></button>
+                    </div>
+                </div>
+                <div id="photo-placeholder" class="text-center text-slate-400 border-2 border-dashed rounded-lg p-8 mb-4" style="display: none;">
+                     <p>No photos have been uploaded yet.</p>
+                </div>
+                <button id="add-photo-btn" class="flex items-center gap-2 text-sm font-medium py-2 px-4 rounded-md bg-[var(--bauer-light-blue)] text-[var(--neutral-white)] hover:bg-[var(--bauer-blue)] transition-colors"><span class="icon text-base">add_a_photo</span>Add Photo</button>
+            `
+        },
+        { 
+            id: 'signatures', title: 'Signatures', icon: 'draw', type: 'custom',
+            content: `
+                <h2 class="text-xl font-semibold text-[var(--bauer-blue)] mb-6 flex items-center gap-2"><span class="icon">draw</span>Signatures</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-8">
+                    <div>
+                        <label class="block text-sm font-medium text-[var(--neutral-grey)] mb-1">Inspector Signature</label>
+                        <div class="mt-1 relative border border-dashed border-[var(--neutral-light-grey)] rounded-md bg-slate-50 cursor-crosshair">
+                           <canvas class="signature-canvas w-full h-28"></canvas>
+                        </div>
+                        <div class="flex justify-end mt-1 h-5">
+                            <button type="button" class="clear-signature-btn text-sm text-red-600 hover:text-red-800 font-medium hidden">Clear</button>
+                        </div>
+                        <input class="mt-2 form-input w-full rounded-md border-[var(--neutral-light-grey)] shadow-sm focus:border-[var(--bauer-light-blue)] focus:ring-[var(--bauer-light-blue)] text-sm py-2" placeholder="Type Inspector Name" type="text"/>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-[var(--neutral-grey)] mb-1">Manager Signature</label>
+                         <div class="mt-1 relative border border-dashed border-[var(--neutral-light-grey)] rounded-md bg-slate-50 cursor-crosshair">
+                            <canvas class="signature-canvas w-full h-28"></canvas>
+                         </div>
+                         <div class="flex justify-end mt-1 h-5">
+                             <button type="button" class="clear-signature-btn text-sm text-red-600 hover:text-red-800 font-medium hidden">Clear</button>
+                         </div>
+                        <input class="mt-2 form-input w-full rounded-md border-[var(--neutral-light-grey)] shadow-sm focus:border-[var(--bauer-light-blue)] focus:ring-[var(--bauer-light-blue)] text-sm py-2" placeholder="Type Manager Name" type="text"/>
+                    </div>
+                </div>`
+        }
+    ];
+
+    // --- DOM ELEMENTS ---
+    const navMenu = document.getElementById('left-nav-menu');
+    const pageContainer = document.getElementById('page-container');
+    
+    // --- DYNAMIC PAGE AND NAV GENERATION ---
+    formSections.forEach((section, index) => {
+        const navLink = document.createElement('a');
+        navLink.className = 'left-nav-link';
+        navLink.dataset.page = index;
+        navLink.innerHTML = `<span class="icon text-base">${section.icon}</span>${section.title}`;
+        navMenu.appendChild(navLink);
+
+        const page = document.createElement('section');
+        page.id = `page-${index}`;
+        page.className = 'page-section';
+
+        if (section.type === 'custom') {
+            page.innerHTML = section.content;
+        } else if (section.type === 'table') {
+            const tableRows = section.items.map(item => {
+                const buttons = section.id === 'fluid-levels' 
+                    ? `<button class="btn-option text-xs font-medium py-1 px-2.5 rounded-md">Below</button>
+                       <button class="btn-option text-xs font-medium py-1 px-2.5 rounded-md">Normal</button>
+                       <button class="btn-option text-xs font-medium py-1 px-2.5 rounded-md">Above</button>`
+                    : `<button class="btn-option good text-xs font-semibold py-1 px-3 rounded-full">Good</button>
+                       <button class="btn-option fair text-xs font-semibold py-1 px-3 rounded-full">Fair</button>
+                       <button class="btn-option repair text-xs font-semibold py-1 px-3 rounded-full">Needs Repair</button>`;
+                
+                return `
+                    <tr>
+                        <td class="px-4 py-3 whitespace-nowrap text-sm text-[var(--neutral-black)] font-medium">${item}</td>
+                        <td class="px-4 py-3 whitespace-nowrap">
+                            <div class="flex gap-1.5 ${section.id === 'fluid-levels' ? 'button-group' : 'checklist-group'}">
+                                ${buttons}
+                            </div>
+                        </td>
+                        <td class="px-4 py-3 w-full">
+                            <input class="form-input w-full rounded-md border-[var(--neutral-light-grey)] shadow-sm focus:border-[var(--bauer-light-blue)] focus:ring-[var(--bauer-light-blue)] text-sm py-1.5" placeholder="Optional notes..." type="text"/>
+                        </td>
+                    </tr>`;
+            }).join('');
+
+            page.innerHTML = `
+                <h2 class="text-xl font-semibold text-[var(--bauer-blue)] mb-5 flex items-center gap-2"><span class="icon">${section.icon}</span>${section.title}</h2>
+                <div class="overflow-x-auto rounded-lg border border-[var(--neutral-light-grey)] shadow-sm">
+                    <table class="w-full">
+                        <thead class="bg-slate-50">
+                            <tr>
+                                <th class="px-4 py-3 text-left text-xs font-medium text-[var(--neutral-grey)] uppercase tracking-wider">Item</th>
+                                <th class="px-4 py-3 text-left text-xs font-medium text-[var(--neutral-grey)] uppercase tracking-wider">Condition</th>
+                                <th class="px-4 py-3 text-left text-xs font-medium text-[var(--neutral-grey)] uppercase tracking-wider">Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-[var(--neutral-white)] divide-y divide-[var(--neutral-light-grey)]">${tableRows}</tbody>
+                    </table>
+                </div>`;
+        }
+        pageContainer.appendChild(page);
+    });
+
+    // --- NAVIGATION LOGIC ---
+    const navLinks = document.querySelectorAll('#left-nav-menu .left-nav-link');
+    const pages = document.querySelectorAll('.page-section');
+    const progressBar = document.getElementById('progress-bar');
+    const progressText = document.getElementById('progress-text');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const submitBtn = document.getElementById('submit-btn');
+
+    let currentPage = 0;
+    const totalPages = pages.length;
+
+    // --- SIGNATURE PAD LOGIC ---
+    const signaturePads = [];
+    let signaturesInitialized = false;
+
+    function initializeSignaturePads() {
+        const signatureCanvases = document.querySelectorAll('.signature-canvas');
+        signatureCanvases.forEach(canvas => {
+            const ratio = Math.max(window.devicePixelRatio || 1, 1);
+            canvas.width = canvas.offsetWidth * ratio;
+            canvas.height = canvas.offsetHeight * ratio;
+            canvas.getContext("2d").scale(ratio, ratio);
+            
+            const signaturePad = new SignaturePad(canvas, { backgroundColor: 'rgb(248, 250, 252)' });
+            signaturePads.push(signaturePad);
+            
+            const clearButton = canvas.closest('div.grid > div').querySelector('.clear-signature-btn');
+            
+            signaturePad.addEventListener("beginStroke", () => {
+                clearButton.classList.remove('hidden');
+            });
+        });
+        signaturesInitialized = true;
+    }
+
+    // --- PHOTO PLACEHOLDER LOGIC ---
+    function updatePhotoPlaceholderVisibility() {
+        const photoGrid = document.getElementById('photo-grid');
+        const placeholder = document.getElementById('photo-placeholder');
+        if (photoGrid && placeholder) {
+            const hasPhotos = photoGrid.querySelector('.photo-card');
+            placeholder.style.display = hasPhotos ? 'none' : 'block';
+            photoGrid.style.display = hasPhotos ? 'grid' : 'none';
+        }
+    }
+
+    function updateUI() {
+        pages.forEach((page, index) => page.classList.toggle('active', index === currentPage));
+        navLinks.forEach((link, index) => {
+            link.classList.remove('nav-completed', 'nav-current');
+            if (index < currentPage) link.classList.add('nav-completed');
+            else if (index === currentPage) link.classList.add('nav-current');
+        });
+        progressBar.style.width = `${((currentPage + 1) / totalPages) * 100}%`;
+        progressText.textContent = `Progress: ${currentPage + 1}/${totalPages}`;
+        prevBtn.disabled = currentPage === 0;
+        nextBtn.classList.toggle('hidden', currentPage === totalPages - 1);
+        submitBtn.classList.toggle('hidden', currentPage !== totalPages - 1);
+
+        const signaturePageIndex = formSections.findIndex(s => s.id === 'signatures');
+        if (currentPage === signaturePageIndex && !signaturesInitialized) {
+            initializeSignaturePads();
+        }
+
+        updatePhotoPlaceholderVisibility();
+    }
+    
+    nextBtn.addEventListener('click', () => { if (currentPage < totalPages - 1) { currentPage++; updateUI(); }});
+    prevBtn.addEventListener('click', () => { if (currentPage > 0) { currentPage--; updateUI(); }});
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            currentPage = parseInt(e.currentTarget.dataset.page);
+            updateUI();
+        });
+    });
+
+    // --- INTERACTIVE ELEMENTS LOGIC (Event Delegation) ---
+    document.body.addEventListener('click', function(e) {
+        const target = e.target;
+
+        if (target.matches('#add-photo-btn, #add-photo-btn *')) {
+            e.preventDefault();
+            const fileInput = document.getElementById('photo-upload-input');
+            if(fileInput) fileInput.click();
+        }
+
+        const deleteBtn = target.closest('.delete-photo-btn');
+        if (deleteBtn) {
+            deleteBtn.closest('.photo-card').remove();
+            updatePhotoPlaceholderVisibility();
+        }
+
+        if (target.matches('.btn-option')) {
+            const group = target.parentElement;
+            if (group.matches('.button-group') || group.matches('.checklist-group')) {
+                group.querySelectorAll('.btn-option').forEach(btn => btn.classList.remove('selected'));
+                target.classList.add('selected');
+            }
+        }
+        if (target.matches('.chip') || target.parentElement.matches('.chip')) {
+             const chip = target.closest('.chip');
+             const group = chip.parentElement;
+             if(group.matches('.chip-group')) {
+                 group.querySelectorAll('.chip').forEach(c => {
+                     c.classList.remove('selected');
+                     c.querySelector('.icon').textContent = 'radio_button_unchecked';
+                 });
+                 chip.classList.add('selected');
+                 chip.querySelector('.icon').textContent = 'check_circle';
+             }
+        }
+        
+        if (target.matches('.clear-signature-btn')) {
+            const canvas = target.closest('div.grid > div').querySelector('.signature-canvas');
+            const pad = signaturePads.find(p => p.canvas === canvas);
+            if (pad) {
+                pad.clear();
+                target.classList.add('hidden');
+            }
+        }
+    });
+
+    // Photo Documentation: Handle file input change for multiple files
+    document.body.addEventListener('change', function(e) {
+        if (e.target.matches('#photo-upload-input')) {
+            const files = e.target.files;
+            if (files.length > 0) {
+                for (const file of files) {
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        const photoGrid = document.getElementById('photo-grid');
+                        if (photoGrid) {
+                            const photoCard = document.createElement('div');
+                            photoCard.className = 'group relative photo-card';
+                            photoCard.innerHTML = `
+                                <div class="aspect-square w-full bg-center bg-no-repeat bg-cover rounded-lg shadow-md border border-[var(--neutral-light-grey)]" style="background-image: url('${event.target.result}');"></div>
+                                <input class="mt-1.5 form-input w-full text-xs py-1 px-2 rounded-md border-[var(--neutral-light-grey)] shadow-sm focus:border-[var(--bauer-light-blue)] focus:ring-[var(--bauer-light-blue)]" placeholder="Caption..." type="text"/>
+                                <button class="delete-photo-btn absolute top-1 right-1 bg-red-500/80 hover:bg-red-600 text-white p-0.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"><span class="icon text-sm">close</span></button>
+                            `;
+                            photoGrid.appendChild(photoCard);
+                            updatePhotoPlaceholderVisibility();
+                        }
+                    };
+                    reader.readAsDataURL(file);
+                }
+                e.target.value = null; 
+            }
+        }
+    });
+    
+    // Initial Setup
+    updateUI();
+});
+</script>
+</body></html>
